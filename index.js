@@ -7,13 +7,12 @@ const server = express();
 const path = require('path');
 const productRouter = require('./routes/product')
 const userRouter = require('./routes/user')
-console.log('env',process.env.DB_PASSWORD)
 
 //db connection
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect(process.env.MONGO_URL);
+  await mongoose.connect(process.env.DB_URL);
   console.log('database connected')
 }
 //Schema
