@@ -13,7 +13,7 @@ console.log('env',process.env.DB_PASSWORD)
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect(process.env.DB_URL);
+  await mongoose.connect(process.env.MONGO_URL);
   console.log('database connected')
 }
 //Schema
@@ -29,7 +29,7 @@ async function main() {
 server.use(cors());
 server.use(express.json());
 server.use(morgan('default'));
-server.use(express.static(path.resolve(__dirname,process.env.PUBLIC_DIR))); //we generally use path module to give the absolute path of directory which can work in os
+server.use(express.static(path.resolve(__dirname,process.env.PUBLIC_DIR)));
 server.use('/products',productRouter.router);
 server.use('/users',userRouter.router);
 server.use('*',(req,res)=>{
