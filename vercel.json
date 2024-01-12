@@ -6,9 +6,17 @@
       }
     ],
     "routes": [
-      {
+        {
         "src": "/(.*)",
+        "dest": "build/"
+      },
+        {
+        "src": "/products",
         "dest": "index.js"
+      },
+      {
+        "src": "/products/(.*)",
+        "dest": "build"
       }
     ]
   }
