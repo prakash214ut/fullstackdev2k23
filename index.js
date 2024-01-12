@@ -11,8 +11,8 @@ const userRouter = require('./routes/user')
 //db connection
 main().catch(err => console.log(err));
 
-mongoose.set('strictQuery', false);
 async function main() {
+  mongoose.set('strictQuery', false);
   await mongoose.connect(process.env.DB_URL);
   console.log('database connected')
 }
